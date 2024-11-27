@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Archistory Quiz</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu-container">
+            <h1 class="welcome-message">BEM-VINDO AO ARCHISTORY QUIZ!</h1>
+            <p>Teste seus conhecimentos respondendo às perguntas de História da Arquitetura e das Artes.</p>
+            <!-- Substitua os botões individuais de mute e música por um único botão -->
+            <button id="startGameButton" onclick="startGame(); playClickSound()">Iniciar Jogo</button>
+            <button id="toggleSoundButton" onclick="toggleSound()">
+                <img src="https://i.postimg.cc/py2p518F/mute.png" alt="Mute" class="small-icon">
+            </button>
+
+            <p><strong>Regras do Jogo:</strong></p>
+            <ol>
+                <li>Você tem 30 segundos para responder cada pergunta.</li>
+                <li>Responda corretamente para ganhar pontos.</li>
+                <li>A cada 10 respostas corretas, você avança para o próximo nível.</li>
+                <li>Se o tempo acabar, você perde.</li>
+                <li>Continue jogando para ver até que nível você pode chegar!</li>
+            </ol>
+        </div>
+
+        <div class="quiz-container">
+            <div class="status-bar">
+                <div id="timer">Tempo: 30s</div>
+                <div id="score">Pontuação: 0</div>
+                <div id="level">Nível: 1</div>
+            </div>
+            <div class="question-container">
+                <div id="question"></div>
+                <div id="options"></div>
+            </div>
+       <button id="restart-button-question">Reiniciar o Jogo</button>
+<button id="back-to-menu-button">Voltar ao Menu</button>
+
+
+
+            <button id="toggleSoundButtonQuiz" onclick="toggleSound()">
+                <img src="https://i.postimg.cc/py2p518F/mute.png" alt="Mute" class="small-icon">
+            </button>
+        </div>
+
+        <div class="popup-container" id="popup-container">
+            <div class="popup" id="popup">
+                <p id="popup-message"></p>
+                <button onclick="closePopup(); playClickSound()">Próxima Pergunta</button>
+            </div>
+        </div>
+
+        <div class="restart-popup-container" id="restart-popup-container">
+            <div class="popup" id="restart-popup">
+                <p id="restart-popup-message"></p>
+                <button onclick="restartGame(); playClickSound()">Reiniciar</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Essinalo,H. Este Jogo Foi Criado Com Fins Educacionais. Versão Beta 5.1</p>
+        </footer>
+    </div>
+
+    <audio id="startGameAudio" src="https://archive.org/download/tmpr-7xcbot-7/%23%20tmpr7xcbot7.mp3" loop></audio>
+    <audio id="correctSound" src="https://archive.org/download/mixkit-classroom-spontaneous-applause-500/mixkit-classroom-spontaneous-applause-500.wav"></audio>
+    <audio id="wrongSound" src="https://archive.org/download/mixkit-wrong-answer-fail-notification-946/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
+    <audio id="levelUpSound" src="https://archive.org/download/mixkit-achievement-bell-600/mixkit-achievement-bell-600.wav"></audio>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            showMenu();
+        });
+    </script>
+</body>
+
+</html>
